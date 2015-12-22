@@ -61,16 +61,13 @@ public class SplashActivity extends Activity {
             public void run() {
                 // This method will be executed once the timer is over
                 // Start your app main activity
-
-                if(doesAccountExist){
-                    Intent i = new Intent(SplashActivity.this, GymMainMenuActivity.class);
-                    startActivity(i);
-                    finish();
-                } else {
-                    // Register activity invoked
-                }
-                // close this activity
-
+                Intent i = doesAccountExist
+                        ?
+                        new Intent(SplashActivity.this, GymMainMenuActivity.class)
+                        :
+                        new Intent(SplashActivity.this, RegisterActivity.class);
+                startActivity(i);
+                finish();
             }
         }, 3000);
     }
