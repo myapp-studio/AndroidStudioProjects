@@ -9,12 +9,15 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
+
+import java.util.List;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -42,6 +45,11 @@ public class SplashActivity extends Activity {
             getWindow().setStatusBarColor(getResources().getColor(R.color.SplashScreenAccent));
         }
 
+
+        DatabaseHandler db = new DatabaseHandler(this);
+
+        final boolean doesAccountExist = db.getContactsCount() > 0 ? true : false;
+
         new Handler().postDelayed(new Runnable() {
 
 
@@ -53,11 +61,16 @@ public class SplashActivity extends Activity {
             public void run() {
                 // This method will be executed once the timer is over
                 // Start your app main activity
-                Intent i = new Intent(SplashActivity.this, GymMainMenuActivity.class);
-                startActivity(i);
 
+                if(doesAccountExist){
+                    Intent i = new Intent(SplashActivity.this, GymMainMenuActivity.class);
+                    startActivity(i);
+                    finish();
+                } else {
+                    // Register activity invoked
+                }
                 // close this activity
-                finish();
+
             }
         }, 3000);
     }
