@@ -20,7 +20,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".GymMainMenuActivity" />
-        <activity android:name=".RegisterActivity"></activity>
     </application>
 
 </manifest>

@@ -26,7 +26,6 @@
             </intent-filter>
         </activity>
         <activity android:name="com.myappstudio.faisal.mygym.GymMainMenuActivity" />
-        <activity android:name="com.myappstudio.faisal.mygym.RegisterActivity" />
     </application>
 
 </manifest>

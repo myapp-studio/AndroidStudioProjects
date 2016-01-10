@@ -46,9 +46,7 @@ public class SplashActivity extends Activity {
         }
 
 
-        DatabaseHandler db = new DatabaseHandler(this);
-
-        final boolean doesAccountExist = db.getContactsCount() > 0 ? true : false;
+        //DatabaseHandler db = new DatabaseHandler(this);
 
         new Handler().postDelayed(new Runnable() {
 
@@ -61,11 +59,7 @@ public class SplashActivity extends Activity {
             public void run() {
                 // This method will be executed once the timer is over
                 // Start your app main activity
-                Intent i = doesAccountExist
-                        ?
-                        new Intent(SplashActivity.this, GymMainMenuActivity.class)
-                        :
-                        new Intent(SplashActivity.this, RegisterActivity.class);
+                Intent i = new Intent(SplashActivity.this, GymMainMenuActivity.class);
                 startActivity(i);
                 finish();
             }
